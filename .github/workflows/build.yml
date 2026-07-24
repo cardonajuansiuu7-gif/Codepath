@@ -27,9 +27,7 @@ jobs:
         run: npm install
 
       - name: Add Android platform
-        run: |
-          mkdir -p android/app/src/main/assets
-          npx cap add android
+        run: mkdir -p android/app/src/main/assets && npx cap add android
 
       - name: Sync Capacitor
         run: npx cap sync android
@@ -39,3 +37,7 @@ jobs:
         run: chmod +x gradlew && ./gradlew assembleDebug
 
       - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
