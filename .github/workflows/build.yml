@@ -27,7 +27,10 @@ jobs:
         run: npm install
 
       - name: Add Android platform
-        run: mkdir -p android/app/src/main/assets && npx cap add android
+        run: npx cap add android || true
+
+      - name: Ensure assets folder exists
+        run: mkdir -p android/app/src/main/assets
 
       - name: Sync Capacitor
         run: npx cap sync android
