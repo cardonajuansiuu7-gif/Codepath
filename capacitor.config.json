@@ -1,0 +1,8 @@
+{
+  "appId": "com.codepath.app",
+  "appName": "CodePath",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
